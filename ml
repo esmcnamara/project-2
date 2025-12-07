@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>LIS 500 Teachable Machine Project</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrapper">
+      <h1>Developing Projects (Project 2)</h1>
+      <nav aria-label="Main navigation">
+        <ul class="nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="profile.html">Tech Hero</a></li>
+          <li><a aria-current="page" href="ml.html">ML Project</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrapper">
+    <section class="hero">
+      <h2>Where Are You Looking!?</h2>
+      <p>We trained an image classifier to recognize which way you are looking when the camera is on.</p>
+    </section>
+
+
+
+    <section class="section">
+      <h3>Try the Model Live</h3>
+      <p>Click “Start” and allow camera access. Then turn your head to test the model.</p>
+
+      <button class="btn" type="button" onclick="init()">Start Webcam</button>
+
+      <div id="webcam-container" style="margin-top:20px;"></div>
+      <div id="label-container" style="margin-top:10px;"></div>
+    </section>
+
+
+
+    <section class="section" style="text-align:center;">
+      <h3>Project Objective</h3>
+      <p>Head Direction Recognition</p>
+      <p>Left, Right, Up, Down, Straight On, and No Face.</p>
+      <p>Collected 100+ Images for Each.</p>
+    </section>
+
+    <section class="section">
+      <h3>Demo</h3>
+      <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;max-width:900px;margin-top:12px;">
+        <iframe
+          src="https://www.youtube.com/embed/aS8vWwXRP-c"
+          title="Teachable Machine Demo"
+          style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </section>
+
+    <section class="section">
+      <h3>Project Statement</h3>
+      <p>
+        For our project, we will use Google’s Teachable Machine to create our machine learning model. Our goal was to build a simple image.`The classifier and present it on a website that meets the design, accessibility, and content requirements of the assignment. Our classifier shows how machine learning "learns" patterns from examples and focuses on identifying head movements, such as looking left, right, up, down, or straight ahead. We provided a thorough description of the model on our website, along with an embedded demo video featuring Ethan. 
+        <br><br>
+        Our model examines what direction a person is looking. It can see if someone is looking up, down, left, right, straight, or not in the frame. We chose this idea because it seemed easy to collect data for and because the Teachable Machine interface is designed around giving examples to the system through video input. At first, training the model felt like just another technical exercise: tilt your head, record a few seconds, click train. But as we kept working, we realized this project was really about understanding how machines learn, what they miss, and how the design choices we make end up shaping everything the model “knows.”
+        <br><br>
+        We built the dataset almost entirely on our own from the start. Each of us took turns recording images for the five categories, but because of time, convenience, and lighting constraints, our dataset ended up being far less diverse than we expected. The majority of the training photos were taken in the same location using identical backgrounds, lighting, and camera. Even more importantly, the model mostly saw faces that look like ours, similar skin tones, similar hair colors, similar ages, and similar facial structures. At the time, it didn’t feel like a problem, but while reading Unmasking AI alongside this project, we began to see how these seemingly small choices connect to a bigger pattern in real-world AI systems.
+        <br><br>
+        Throughout Unmasking AI, Buolamwini shows how systems built without diverse data or careful oversight often fail to recognize people who don’t match the majority group in the training set. Despite its modest size, our project clearly reflected that reality. Because Ethan was in a majority of the model training images, the video demo did a good job of identifying which way he was looking. However, we noticed that it is not always accurate when other people try it. It is giving us fake information, for example, someone who tried it was facing the camera, and the model told us that they were looking to the left.
+        <br><br>
+        In the book, Buolamwini introduces the concept of the coded gaze, the idea that algorithms inherit the worldview, the blind spots, and the biases of the people who built them. As we trained our model, we started to understand what this meant on a practical level. Our classifier didn’t learn what “people” look like when they turn their heads; it learned what we look like when we turn our heads. Every limitation in the dataset became a limitation in the system itself. Sometimes the model could struggle at different camera angles, lighting, and especially on other people.
+        <br><br>
+        One thing that we learn and is made clear in Unmasking AI is that bias doesn’t necessarily come from someone wanting to make it have bias, but rather from the data it's trained on or various other factors. We simply chose the easiest method for gathering data; we weren't attempting to create a biased model. Buolamwini describes how commercial facial recognition systems couldn’t identify her face unless she wore a white mask, not because her face was difficult to analyze, but because those systems were never trained on people who looked like her. In a much smaller way, we saw the same logic in our own model: the technology worked best for the people it was built around and had trouble with anyone outside that narrow group. 
+        <br><br>
+        Another major point from Unmasking AI that connected to our work was the emotional impact of misrecognition. Buolamwini writes about how harmful it felt to be invisible to systems that were supposed to work for everyone. Our project isn’t dealing with identity verification, policing, hiring, or healthcare, but even in our low-stakes setting, misclassification still revealed something important. It was more than a technical error when the classifier consistently misread a person's head direction. It signaled that the system didn’t understand that person in the same way it understood others. This allowed us to see what the issues may be regarding those who are not benefited by potential bias due to identity reasons.
+        <br><br>
+        On our website, we included a section explaining how the classifier was trained, the types of images we used, the examples we collected, and an honest reflection on where the model struggles. This very much aligns with the transparency shown in Unmasking AI. We also uploaded our code to GitHub and linked it so visitors could see exactly what we built. Even adding Ethan’s demo video helped make the project more transparent, and viewers can watch the model in real time and see both its strengths and its weaknesses.
+        <br><br>
+        Finally, our Teachable Machine model and website project gave us a way to experience the challenges and responsibilities of building technology, specifically models trained on data. It helped us see how bias can appear without the creator knowing, how limited photos could shape the outcome of our model, and how important it is for everyone to be able to use your technology. Unmasking AI didn’t just give us background knowledge for the assignment; it completely reshaped how we understood our own project. We discovered that fairness must be maintained in all models. Even though our model is small, the lessons we learned from the readings will allow us to make technology that is fair and what she stands for.
+      </p>
+    </section>
+
+    <section class="section">
+      <h3>Team</h3>
+      <ul>
+        <li>Ethan McNamara</li>
+        <li>Dominik Torok</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Ethan McNamara and Dominik Torok</p>
+  </footer>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+
+  <script>
+    const URL = "https://teachablemachine.withgoogle.com/models/ETsgiU74v/";
+
+    let model, webcam, labelContainer, maxPredictions;
+
+    async function init() {
+      const modelURL = URL + "model.json";
+      const metadataURL = URL + "metadata.json";
+
+      model = await tmImage.load(modelURL, metadataURL);
+      maxPredictions = model.getTotalClasses();
+
+      const flip = true;
+      webcam = new tmImage.Webcam(480, 360, flip);
+      await webcam.setup();
+      await webcam.play();
+      window.requestAnimationFrame(loop);
+
+      document.getElementById("webcam-container").appendChild(webcam.canvas);
+
+      labelContainer = document.getElementById("label-container");
+      labelContainer.innerHTML = ""; 
+
+      for (let i = 0; i < maxPredictions; i++) {
+        const div = document.createElement("div");
+        div.style.fontSize = "1.2rem";
+        div.style.margin = "4px 0";
+        labelContainer.appendChild(div);
+      }
+    }
+
+    async function loop() {
+      webcam.update();
+      await predict();
+      window.requestAnimationFrame(loop);
+    }
+
+    async function predict() {
+      const prediction = await model.predict(webcam.canvas);
+      for (let i = 0; i < maxPredictions; i++) {
+        const className = prediction[i].className;
+        const prob = (prediction[i].probability * 100).toFixed(1) + "%";
+        labelContainer.childNodes[i].innerHTML = `${className}: ${prob}`;
+      }
+    }
+  </script>
+
+
+</body>
+</html>
