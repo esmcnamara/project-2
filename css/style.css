@@ -95,6 +95,25 @@ a:focus{outline:2px solid #93c5fd;outline-offset:2px}
 .muted{color:#6b7280}
 img{max-width:100%;height:auto;border-radius:8px}
 
+/* Centered responsive video container for ML demo */
+.video-container{
+  position:relative;
+  padding-bottom:60%;
+  height:0;
+  overflow:hidden;
+  border-radius:12px;
+  max-width:900px;
+  margin:12px auto; /* this centers the video */
+}
+.video-container iframe{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  border:0;
+}
+
 ::selection{background:#cfe0ff;color:#0b1d7a}
 
 @media (max-width:700px){
